@@ -20,9 +20,9 @@ $x_{t+1} = x_t + w_t,\quad w_t \sim \mathcal{N}(0, Q)$
 
 
 where:
-- $\(x_t\)$ is the hidden (unobserved) true state,
-- $\(w_t\)$ is the process noise,
-- $\(Q\)$ controls how much the true state fluctuates over time.
+- $x_t\$ is the hidden (unobserved) true state,
+- $w_t\$ is the process noise,
+- $Q\$ controls how much the true state fluctuates over time.
 
 ### Observation Model
 The observed measurement is a noisy version of the true state:
@@ -34,8 +34,8 @@ $y_t = x_t + v_t, \quad v_t \sim \mathcal{N}(0, R)$
 
 where:
 - $y_t\$ is the observed value,
-- $\(v_t\)$ is the measurement noise,
-- $\(R\)$ controls the noise level of the observation.
+- $v_t\$ is the measurement noise,
+- $R\$ controls the noise level of the observation.
 
 ---
 
