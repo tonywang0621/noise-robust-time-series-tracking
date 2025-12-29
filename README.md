@@ -1,5 +1,3 @@
-# noise-robust-time-series-tracking
-A step-by-step project on noisy dynamic systems and hidden state estimation
 # Week 1 – Data Generation and Visualization
 
 ## Motivation
@@ -17,9 +15,7 @@ We consider a one-dimensional discrete-time dynamic system with the following as
 
 ### Hidden State (Process Model)
 The true system state evolves as a random walk:
-$$
-x_{t+1} = x_t + w_t,\quad w_t \sim \mathcal{N}(0, Q)
-$$
+$x_{t+1} = x_t + w_t,\quad w_t \sim \mathcal{N}(0, Q)$
 
 
 where:
@@ -69,3 +65,4 @@ From the visualization:
 
 ## Next Step
 In Week 2, we will apply simple baseline methods (naive estimation, moving average, and regression-based approaches) to estimate the hidden state and evaluate their performance.
+
