@@ -33,7 +33,7 @@ $y_t = x_t + v_t, \quad v_t \sim \mathcal{N}(0, R)$
 
 
 where:
-- $\(y_t\)$ is the observed value,
+- $y_t\$ is the observed value,
 - $\(v_t\)$ is the measurement noise,
 - $\(R\)$ controls the noise level of the observation.
 
