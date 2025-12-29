@@ -69,3 +69,66 @@ From the visualization:
 ## Next Step
 In Week 2, we will apply simple baseline methods (naive estimation, moving average, and regression-based approaches) to estimate the hidden state and evaluate their performance.
 
+# Week 2 – Baseline Methods under Noisy Observations
+
+## Purpose of Baselines
+Before applying any advanced filtering or model-based estimation method, it is important to understand how simple and intuitive approaches behave under noisy conditions.
+
+In this week, several baseline methods are introduced to establish reference points for comparison. These baselines help clarify the limitations of observation-only and data-driven approaches, and motivate the need for a more principled state estimation framework.
+
+---
+
+## Baseline Methods
+
+### Naive Baseline
+The naive baseline directly uses the noisy observation as the estimate of the system state:
+- No noise handling
+- No temporal modeling
+
+This baseline represents the lower bound of performance and serves as a reference for the worst-case scenario.
+
+---
+
+### Moving Average Baseline
+The moving average baseline smooths the noisy observations by averaging the most recent measurements within a fixed window.
+
+- Effectively reduces measurement noise
+- Introduces temporal lag when the true state changes
+- Does not distinguish between noise and genuine state transitions
+
+This method highlights the trade-off between noise reduction and responsiveness.
+
+---
+
+### Linear Regression Baseline
+The regression-based baseline predicts the current state using a linear combination of past observations.
+
+- Purely data-driven
+- Does not assume any system dynamics
+- Sensitive to measurement noise
+- May overfit noisy observations
+
+This baseline represents the simplest form of machine learning without explicit modeling of the underlying process.
+
+---
+
+## Key Observations
+From the experimental results and visual comparisons:
+
+- The naive baseline closely follows noisy observations and is highly sensitive to measurement noise.
+- Moving average smoothing reduces noise but consistently lags behind the true state, especially when the state changes rapidly.
+- Linear regression captures short-term trends but can become unstable under high noise levels and tends to track noise rather than the underlying state.
+
+These results demonstrate that observation-based and data-driven methods alone are insufficient for reliable state estimation in noisy dynamic systems.
+
+---
+
+## Motivation for Next Step
+The limitations observed in the baseline methods motivate the use of model-based filtering approaches.
+
+An effective estimator should:
+- Reduce measurement noise without introducing excessive lag
+- Incorporate knowledge of system dynamics
+- Balance trust between observations and model predictions
+
+In Week 3, a Kalman filter will be introduced to address these challenges by explicitly modeling state evolution and uncertainty.
