@@ -17,9 +17,10 @@ We consider a one-dimensional discrete-time dynamic system with the following as
 
 ### Hidden State (Process Model)
 The true system state evolves as a random walk:
-\[
-x_{t+1} = x_t + w_t, \quad w_t \sim \mathcal{N}(0, Q)
-\]
+$$
+x_{t+1} = x_t + w_t,\quad w_t \sim \mathcal{N}(0, Q)
+$$
+
 
 where:
 - \(x_t\) is the hidden (unobserved) true state,
