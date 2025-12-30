@@ -132,3 +132,135 @@ An effective estimator should:
 - Balance trust between observations and model predictions
 
 In Week 3, a Kalman filter will be introduced to address these challenges by explicitly modeling state evolution and uncertainty.
+
+# Week 3 – Kalman Filter for Noisy Dynamic Systems
+
+## Motivation
+In Week 2, several baseline methods were used to estimate system states under noisy observations, including naive estimation, moving average smoothing, and linear regression.
+Although these approaches provide partial improvements, they each exhibit fundamental limitations:
+
+- Naive estimation is highly sensitive to measurement noise.
+- Moving average smoothing reduces noise but introduces temporal lag.
+- Linear regression is purely data-driven and may overreact to noisy observations.
+
+These limitations motivate the use of a model-based filtering approach that explicitly accounts for system dynamics and uncertainty.
+
+---
+
+## System Model (Problem Setup)
+We consider a one-dimensional discrete-time dynamic system.
+The true system state is not directly observable and evolves over time, while observations are corrupted by noise.
+
+The system is modeled as a **random walk**, defined as:
+
+
+$x_t = x_{t-1} + w_{t-1}, \quad w_{t-1} \sim \mathcal{N}(0, Q)$
+
+
+where:
+- $x_t\$ denotes the true (hidden) system state at time \(t\),
+- $w_{t-1}\$ represents process noise,
+- $Q\$ controls the uncertainty in the system evolution.
+
+Observations are given by:
+
+
+$y_t = x_t + v_t, \quad v_t \sim \mathcal{N}(0, R)$
+
+
+where:
+- $y_t\$ is the noisy observation,
+- $v_t\$ represents measurement noise,
+- $R\$ controls the reliability of observations.
+
+This formulation captures the core challenge of state estimation: inferring an evolving hidden state from noisy measurements.
+
+---
+
+## Uncertainty Interpretation (Q and R)
+Two sources of uncertainty are explicitly modeled:
+
+- **Process noise Q:**  
+  Describes how unpredictable the system dynamics are.  
+  A larger \(Q\) implies the state may change more rapidly between time steps.
+
+- **Measurement noise R:**  
+  Describes how unreliable the observations are.  
+  A larger $R\$ implies observations contain more noise.
+
+The relative magnitudes of $Q\$ and $R\$ determine how much the filter trusts model predictions versus new observations.
+
+---
+
+## Kalman Filter Formulation (1D)
+Under the above assumptions, the Kalman filter recursively estimates the system state using two steps: **prediction** and **update**.
+
+### Prediction Step
+Before observing $y_t\$, the state and uncertainty are predicted as:
+
+
+$\hat{x}_{t|t-1} = \hat{x}_{t-1|t-1}$
+
+
+$P_{t|t-1} = P_{t-1|t-1} + Q$
+
+where:
+- $\hat{x}_{t|t-1}\$ is the predicted state estimate,
+- $P_{t|t-1}\$ is the predicted uncertainty.
+
+---
+
+### Update Step
+After receiving the new observation %y_t\$, the Kalman gain is computed:
+
+
+$K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}$
+
+
+The state estimate and uncertainty are then updated:
+
+
+$\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)
+\$
+
+
+$P_{t|t} = (1 - K_t) P_{t|t-1}$
+
+The Kalman gain \(K_t\) determines how much the estimate is corrected toward the observation.
+
+---
+
+## Comparison with Baseline Methods
+Using the same random walk system and noisy observations as in Week 2:
+
+- The Kalman filter significantly reduces sensitivity to measurement noise compared to the naive baseline.
+- Unlike moving average smoothing, it avoids excessive temporal lag.
+- Compared to linear regression, it produces more stable estimates by explicitly modeling uncertainty.
+
+This demonstrates the advantage of model-based filtering over purely observation-based or data-driven methods.
+
+---
+
+## Sensitivity Analysis: Effects of Q and R
+To further understand filter behavior, sensitivity analysis is conducted by varying the noise parameters.
+
+### Effect of Measurement Noise (R)
+As \(R\) increases:
+- The Kalman gain decreases.
+- The filter relies more on model predictions.
+- State estimates become smoother and less sensitive to noisy observations.
+
+### Effect of Process Noise (Q)
+As \(Q\) increases:
+- Predicted uncertainty increases.
+- The Kalman gain increases.
+- The filter responds more strongly to new observations.
+
+---
+
+## Key Takeaways
+- The Kalman filter provides a principled solution for state estimation in noisy dynamic systems.
+- Explicit modeling of uncertainty allows it to balance noise reduction and responsiveness.
+- The parameters \(Q\) and \(R\) play a critical role in controlling filter behavior.
+
+This week completes the transition from baseline methods to model-based state estimation, establishing a foundation for more advanced filtering and dynamic models.
