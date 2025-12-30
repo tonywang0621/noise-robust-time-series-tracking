@@ -182,7 +182,7 @@ Two sources of uncertainty are explicitly modeled:
 
 - **Process noise Q:**  
   Describes how unpredictable the system dynamics are.  
-  A larger \(Q\) implies the state may change more rapidly between time steps.
+  A larger $Q\$ implies the state may change more rapidly between time steps.
 
 - **Measurement noise R:**  
   Describes how unreliable the observations are.  
@@ -220,8 +220,7 @@ $K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}$
 The state estimate and uncertainty are then updated:
 
 
-$\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)
-\$
+$\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)$
 
 
 $P_{t|t} = (1 - K_t) P_{t|t-1}$
