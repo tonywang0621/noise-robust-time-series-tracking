@@ -220,12 +220,12 @@ $K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}$
 The state estimate and uncertainty are then updated:
 
 
-$\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)$
+$hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)$
 
 
 $P_{t|t} = (1 - K_t) P_{t|t-1}$
 
-The Kalman gain \(K_t\) determines how much the estimate is corrected toward the observation.
+The Kalman gain $K_t\$ determines how much the estimate is corrected toward the observation.
 
 ---
 
@@ -244,13 +244,13 @@ This demonstrates the advantage of model-based filtering over purely observation
 To further understand filter behavior, sensitivity analysis is conducted by varying the noise parameters.
 
 ### Effect of Measurement Noise (R)
-As \(R\) increases:
+As $R\$ increases:
 - The Kalman gain decreases.
 - The filter relies more on model predictions.
 - State estimates become smoother and less sensitive to noisy observations.
 
 ### Effect of Process Noise (Q)
-As \(Q\) increases:
+As $Q\$ increases:
 - Predicted uncertainty increases.
 - The Kalman gain increases.
 - The filter responds more strongly to new observations.
