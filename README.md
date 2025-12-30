@@ -199,7 +199,7 @@ Under the above assumptions, the Kalman filter recursively estimates the system 
 Before observing $y_t\$, the state and uncertainty are predicted as:
 
 
-$\hat{x}_{t|t-1} = \hat{x}_{t-1|t-1}$
+$$ \hat{x}_{t|t-1} = \hat{x}_{t-1|t-1} $$
 
 
 $P_{t|t-1} = P_{t-1|t-1} + Q$
@@ -220,7 +220,7 @@ $K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}$
 The state estimate and uncertainty are then updated:
 
 
-$\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)$
+$$ \hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr) $$
 
 
 $P_{t|t} = (1 - K_t) P_{t|t-1}$
