@@ -168,10 +168,10 @@ H P_{t|t-1} H^\top + R
 $$
 
 $$
-\hat{x}_{t|t}
-= \hat{x}_{t|t-1}
+\hat{x}_{t|t} = \hat{x}_{t|t-1}
 + K_t \bigl(y_t - H \hat{x}_{t|t-1}\bigr)
 $$
+
 
 $$
 P_{t|t}
