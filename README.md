@@ -100,6 +100,8 @@ As $Q$ increases:
 - The Kalman gain increases.
 - The filter responds more strongly to new observations.
 
+--- 
+### Transition to Higher-Dimensional Models While the one-dimensional random walk model illustrates the basic principles of Kalman filtering, many real-world systems involve multiple interacting states. For example, tracking an object's position requires not only its location but also its velocity. To capture such dynamics, we extend the framework to a two-dimensional position–velocity model, which demonstrates how the Kalman filter scales to more complex systems. 
 ---
 
 ## Part II: Two-Dimensional Position–Velocity Model
@@ -160,3 +162,4 @@ position–velocity model, the Kalman filter not only outperforms intuitive base
 methods but also enables inference of latent system states by explicitly modeling
 dynamics and uncertainty.
 
+## Future Directions Building on these foundations, several extensions can be explored: - **Higher-dimensional systems:** Applying Kalman filters to multi-variable systems such as 3D position–velocity–acceleration tracking. - **Nonlinear dynamics:** Extending to the Extended Kalman Filter (EKF) or Unscented Kalman Filter (UKF) for nonlinear models. - **Adaptive filtering:** Allowing the filter to adjust noise parameters $Q$ and $R$ online for changing environments. - **Applications:** Using Kalman filters in robotics, navigation, finance, and signal processing where noisy sequential data is common.
