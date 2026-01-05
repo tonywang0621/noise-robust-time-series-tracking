@@ -69,10 +69,10 @@ K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}
 $$
 
 $$
-\hat{x}_{t|t}
-= \hat{x}_{t|t-1}
+\hat{x}_{t|t} = \hat{x}_{t|t-1}
 + K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)
 $$
+
 
 $$
 P_{t|t}
