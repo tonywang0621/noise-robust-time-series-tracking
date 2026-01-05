@@ -46,20 +46,11 @@ where:
 ### Estimation Methods
 
 #### Baseline Approaches
-Several baseline methods are implemented for comparison:
-
 - **Naive estimation:** directly using noisy observations.
 - **Moving average:** smoothing observations over a fixed window.
 - **Linear regression:** data-driven prediction using past observations.
 
-These approaches provide partial improvements but suffer from noise sensitivity
-or temporal lag.
-
----
-
 #### Kalman Filter (1D)
-To overcome baseline limitations, a Kalman filter is applied as a model-based estimation method.
-The filter recursively estimates the system state through prediction and update steps.
 
 **Prediction**
 
@@ -73,75 +64,49 @@ $$
 
 **Update**
 
-The Kalman gain is computed as:
-
 $$
 K_t = \frac{P_{t|t-1}}{P_{t|t-1} + R}
 $$
 
-The state estimate and uncertainty are updated as:
-
 $$
 \hat{x}_{t|t}
-=
-\hat{x}_{t|t-1}
-+
-K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)
+= \hat{x}_{t|t-1}
++ K_t \bigl(y_t - \hat{x}_{t|t-1}\bigr)
 $$
 
 $$
 P_{t|t}
-=
-(1 - K_t) P_{t|t-1}
+= (1 - K_t) P_{t|t-1}
 $$
-
-The Kalman gain $K_t$ determines how much the estimate is corrected toward the observation.
 
 ---
 
 ### Experimental Results
-Experiments show that:
-
 - Baseline methods either overreact to noise or introduce noticeable delay.
 - The Kalman filter achieves a better balance between smoothness and responsiveness.
-- Compared to baselines, the Kalman filter produces more stable and timely state estimates,
-as confirmed by RMSE and MAE metrics.
+- Compared to baselines, the Kalman filter produces more stable and timely state estimates.
 
 ---
 
 ### Sensitivity Analysis: Effects of $Q$ and $R$
 
-**Effect of Measurement Noise ($R$)**
-
+**Effect of Measurement Noise ($R$)**  
 As $R$ increases:
 - The Kalman gain decreases.
 - The filter relies more on model predictions.
 - State estimates become smoother and less sensitive to noisy observations.
 
-**Effect of Process Noise ($Q$)**
-
+**Effect of Process Noise ($Q$)**  
 As $Q$ increases:
 - Predicted uncertainty increases.
 - The Kalman gain increases.
 - The filter responds more strongly to new observations.
 
-Local zoom-in analysis is used to better illustrate these effects.
-
 ---
 
-## Part II: Extension to a Two-Dimensional Position–Velocity Model
-
-### Motivation
-While the one-dimensional random walk model provides a clear and interpretable example,
-many real-world tracking problems involve latent variables that are not directly observed.
-To better reflect such scenarios, the system is extended to a two-dimensional
-position–velocity model.
-
----
+## Part II: Two-Dimensional Position–Velocity Model
 
 ### State Definition
-The system state is defined as:
-
 $$
 \mathbf{x}_t =
 \begin{bmatrix}
@@ -150,13 +115,7 @@ v_t
 \end{bmatrix}
 $$
 
-where $p_t$ denotes position and $v_t$ denotes velocity.
-
----
-
 ### State Transition Model
-The system follows a constant-velocity motion model:
-
 $$
 \mathbf{x}_t
 =
@@ -171,11 +130,7 @@ $$
 \mathbf{w}_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{Q})
 $$
 
----
-
 ### Observation Model
-Only the position component is observed:
-
 $$
 y_t =
 \begin{bmatrix}
@@ -187,9 +142,6 @@ v_t,
 \quad
 v_t \sim \mathcal{N}(0, R)
 $$
-
-Velocity is treated as a **latent state** and inferred implicitly
-from noisy position measurements through the system dynamics.
 
 ---
 
@@ -241,13 +193,6 @@ $$
 (\mathbf{I} - \mathbf{K}_t\mathbf{H})
 \mathbf{P}_{t|t-1}
 $$
-
----
-
-### Interpretation
-Despite observing position only, the Kalman filter successfully estimates both
-position and velocity. The inferred velocity is smooth and physically consistent,
-demonstrating the filter’s ability to recover latent states under partial observability.
 
 ---
 
