@@ -115,7 +115,7 @@ $$
 
 ### State Transition Model
 
-$$\mathbf{x}_t=\begin{bmatrix}1 & 1 \\ 0 & 1\end{bmatrix}\mathbf{x}_{t-1}+\mathbf{w}_{t-1},\quad\mathbf{w}_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{Q})$$
+$$\mathbf{x}_t=\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}\mathbf{x}_{t-1}+\mathbf{w}_{t-1},\quad\mathbf{w}_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{Q})$$
 
 
 ### Observation Model
