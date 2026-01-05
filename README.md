@@ -120,18 +120,7 @@ $$\mathbf{x}_t=\begin{bmatrix} 1 & 1 \\
 
 
 ### Observation Model
-$$
-y_t
-=
-\begin{bmatrix}
-1 & 0
-\end{bmatrix}
-\mathbf{x}_t
-+
-v_t,
-\quad
-v_t \sim \mathcal{N}(0, R)
-$$
+$$y_t=\begin{bmatrix}1 & 0\end{bmatrix}\mathbf{x}_t+v_t,\quadv_t \sim \mathcal{N}(0, R)$$
 
 ---
 
