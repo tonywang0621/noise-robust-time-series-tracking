@@ -100,7 +100,8 @@ As $Q$ increases:
 - The Kalman gain increases.
 - The filter responds more strongly to new observations.
 
-### Transition to Higher-Dimensional Models While the one-dimensional random walk model illustrates the basic principles of Kalman filtering, many real-world systems involve multiple interacting states. For example, tracking an object's position requires not only its location but also its velocity. To capture such dynamics, we extend the framework to a two-dimensional position–velocity model, which demonstrates how the Kalman filter scales to more complex systems.
+### Transition to Higher-Dimensional Models 
+While the one-dimensional random walk model illustrates the basic principles of Kalman filtering, many real-world systems involve multiple interacting states. For example, tracking an object's position requires not only its location but also its velocity. To capture such dynamics, we extend the framework to a two-dimensional position–velocity model, which demonstrates how the Kalman filter scales to more complex systems.
 ---
 
 ## Part II: Two-Dimensional Position–Velocity Model
