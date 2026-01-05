@@ -117,15 +117,13 @@ $$
 
 ### State Transition Model
 $$
-x_t
-=
+x_t =
 \begin{bmatrix}
 1 & 1 \\
 0 & 1
 \end{bmatrix}
 x_{t-1}
-+ w_{t-1}, 
-\quad
++ w_{t-1}, \quad
 w_{t-1} \sim \mathcal{N}(0, Q)
 $$
 
@@ -136,8 +134,7 @@ y_t =
 1 & 0
 \end{bmatrix}
 x_t
-+ v_t, 
-\quad
++ v_t, \quad
 v_t \sim \mathcal{N}(0, R)
 $$
 
@@ -148,34 +145,25 @@ $$
 **Prediction**
 
 $$
-\hat{x}_{t|t-1}
-= F \hat{x}_{t-1|t-1}
+\hat{x}_{t|t-1} = F \hat{x}_{t-1|t-1}
 $$
 
 $$
-P_{t|t-1}
-= F P_{t-1|t-1} F^\top + Q
+P_{t|t-1} = F P_{t-1|t-1} F^\top + Q
 $$
 
 **Update**
 
 $$
-K_t
-= P_{t|t-1} H^\top
-\bigl(
-H P_{t|t-1} H^\top + R
-\bigr)^{-1}
+K_t = P_{t|t-1} H^\top \bigl(H P_{t|t-1} H^\top + R\bigr)^{-1}
 $$
 
 $$
-\hat{x}_{t|t} = \hat{x}_{t|t-1}
-+ K_t \bigl(y_t - H \hat{x}_{t|t-1}\bigr)
+\hat{x}_{t|t} = \hat{x}_{t|t-1} + K_t \bigl(y_t - H \hat{x}_{t|t-1}\bigr)
 $$
 
-
 $$
-P_{t|t}
-= (I - K_t H)\, P_{t|t-1}
+P_{t|t} = (I - K_t H)\, P_{t|t-1}
 $$
 
 ---
@@ -187,3 +175,4 @@ Starting from a simple one-dimensional random walk and extending to a two-dimens
 position–velocity model, the Kalman filter not only outperforms intuitive baseline
 methods but also enables inference of latent system states by explicitly modeling
 dynamics and uncertainty.
+
