@@ -117,24 +117,30 @@ $$
 
 ### State Transition Model
 $$
-x_t =
+\mathbf{x}_t
+=
 \begin{bmatrix}
 1 & 1 \\
 0 & 1
 \end{bmatrix}
-x_{t-1}
-+ w_{t-1}, \quad
-w_{t-1} \sim \mathcal{N}(0, Q)
+\mathbf{x}_{t-1}
++
+\mathbf{w}_{t-1},
+\quad
+\mathbf{w}_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{Q})
 $$
 
 ### Observation Model
 $$
-y_t =
+y_t
+=
 \begin{bmatrix}
 1 & 0
 \end{bmatrix}
-x_t
-+ v_t, \quad
+\mathbf{x}_t
++
+v_t,
+\quad
 v_t \sim \mathcal{N}(0, R)
 $$
 
