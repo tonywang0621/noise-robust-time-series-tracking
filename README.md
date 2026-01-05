@@ -168,4 +168,12 @@ position–velocity model, the Kalman filter not only outperforms intuitive base
 methods but also enables inference of latent system states by explicitly modeling
 dynamics and uncertainty.
 
-## Future Directions Building on these foundations, several extensions can be explored: - **Higher-dimensional systems:** Applying Kalman filters to multi-variable systems such as 3D position–velocity–acceleration tracking. - **Nonlinear dynamics:** Extending to the Extended Kalman Filter (EKF) or Unscented Kalman Filter (UKF) for nonlinear models. - **Adaptive filtering:** Allowing the filter to adjust noise parameters $Q$ and $R$ online for changing environments. - **Applications:** Using Kalman filters in robotics, navigation, finance, and signal processing where noisy sequential data is common.
+
+---
+
+## Future Directions
+Building on these foundations, several extensions can be explored:
+- **Higher-dimensional systems:** Applying Kalman filters to 3D position–velocity–acceleration tracking.
+- **Nonlinear dynamics:** Extending to the Extended Kalman Filter (EKF) or Unscented Kalman Filter (UKF).
+- **Adaptive filtering:** Allowing the filter to adjust noise parameters \(Q\) and \(R\) online.
+- **Applications:** Using Kalman filters in robotics, navigation, finance, and signal processing.
