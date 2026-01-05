@@ -9,6 +9,7 @@ To address this challenge, a Kalman filter is applied as a model-based state est
 explicitly modeling system dynamics and uncertainty.
 
 ---
+Part I: One-Dimensional Random Walk Model
 
 ## Problem Setting
 We consider a one-dimensional discrete-time dynamic system.
