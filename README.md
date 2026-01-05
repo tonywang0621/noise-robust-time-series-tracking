@@ -108,7 +108,7 @@ As $Q$ increases:
 
 ### State Definition
 $$
-\mathbf{x}_t =
+x_t =
 \begin{bmatrix}
 p_t \\
 v_t
@@ -117,17 +117,16 @@ $$
 
 ### State Transition Model
 $$
-\mathbf{x}_t
+x_t
 =
 \begin{bmatrix}
 1 & 1 \\
 0 & 1
 \end{bmatrix}
-\mathbf{x}_{t-1}
-+
-\mathbf{w}_{t-1},
+x_{t-1}
++ w_{t-1}, 
 \quad
-\mathbf{w}_{t-1} \sim \mathcal{N}(\mathbf{0}, \mathbf{Q})
+w_{t-1} \sim \mathcal{N}(0, Q)
 $$
 
 ### Observation Model
@@ -136,9 +135,8 @@ y_t =
 \begin{bmatrix}
 1 & 0
 \end{bmatrix}
-\mathbf{x}_t
-+
-v_t,
+x_t
++ v_t, 
 \quad
 v_t \sim \mathcal{N}(0, R)
 $$
@@ -150,48 +148,34 @@ $$
 **Prediction**
 
 $$
-\hat{\mathbf{x}}_{t|t-1}
-=
-\mathbf{F}\,\hat{\mathbf{x}}_{t-1|t-1}
+\hat{x}_{t|t-1}
+= F \hat{x}_{t-1|t-1}
 $$
 
 $$
-\mathbf{P}_{t|t-1}
-=
-\mathbf{F}\,\mathbf{P}_{t-1|t-1}\,\mathbf{F}^\top
-+
-\mathbf{Q}
+P_{t|t-1}
+= F P_{t-1|t-1} F^\top + Q
 $$
 
 **Update**
 
 $$
-\mathbf{K}_t
-=
-\mathbf{P}_{t|t-1}\mathbf{H}^\top
+K_t
+= P_{t|t-1} H^\top
 \bigl(
-\mathbf{H}\mathbf{P}_{t|t-1}\mathbf{H}^\top
-+
-\mathbf{R}
+H P_{t|t-1} H^\top + R
 \bigr)^{-1}
 $$
 
 $$
-\hat{\mathbf{x}}_{t|t}
-=
-\hat{\mathbf{x}}_{t|t-1}
-+
-\mathbf{K}_t
-\bigl(
-y_t - \mathbf{H}\hat{\mathbf{x}}_{t|t-1}
-\bigr)
+\hat{x}_{t|t}
+= \hat{x}_{t|t-1}
++ K_t \bigl(y_t - H \hat{x}_{t|t-1}\bigr)
 $$
 
 $$
-\mathbf{P}_{t|t}
-=
-(\mathbf{I} - \mathbf{K}_t\mathbf{H})
-\mathbf{P}_{t|t-1}
+P_{t|t}
+= (I - K_t H)\, P_{t|t-1}
 $$
 
 ---
