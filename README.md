@@ -88,12 +88,7 @@ When the process noise variance **Q** and measurement noise variance **R** are u
 
 ### Update rule for process noise variance $\(Q\)$
 
-\[
-Q^{(k+1)}=\frac{1}{T-1}\sum_{t=2}^{T}\Big[
-(\hat{x}_{t|T}-\hat{x}_{t-1|T})^2
-+P_{t|T}+P_{t-1|T}-2P_{t,t-1|T}
-\Big]
-\]
+$$ Q^{(k+1)} = \frac{1}{T-1} \sum_{t=2}^{T} \Big[ (\hat{x}_{t|T} - \hat{x}_{t-1|T})^2 + P_{t|T} + P_{t-1|T} - 2 P_{t,t-1|T} \Big] $$
 
 ### Update rule for measurement noise variance $\(R\)$
 
