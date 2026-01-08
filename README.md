@@ -118,7 +118,8 @@ Achieves a balance between **smoothness** and **responsiveness**, and outperform
 ### EM-Kalman
 Starting from initial guesses \(Q=1.0, R=4.0\), EM converged to:
 
-- $$ Q_{\text{est}} \approx 0.75, \quad R_{\text{est}} \approx 3.85 $$
+- $$ Q_{\text{est}} \approx 0.75 $$
+- $$ R_{\text{est}} \approx 3.85 $$
 
 
 These estimates are close to the true parameters, showing EM can effectively learn noise variances from data.
