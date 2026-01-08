@@ -98,9 +98,9 @@ $$ R^{(k+1)} = \frac{1}{T} \sum_{t=1}^{T} \Big[ (y_t - \hat{x}_{t|T})^2 + P_{t|T
 
 ### Notation
 
-- \(\hat{x}_{t|T}\): smoothed state estimate using **all** observations (RTS smoother output)
-- \(P_{t|T}\): smoothed state variance
-- \(P_{t,t-1|T}\): smoothed cross-covariance between consecutive states
+- $\hat{x}_{t|T}\$: smoothed state estimate using **all** observations (RTS smoother output)
+- $P_{t|T}\$: smoothed state variance
+- $P_{t,t-1|T}\$: smoothed cross-covariance between consecutive states
 
 ---
 
