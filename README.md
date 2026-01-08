@@ -86,7 +86,7 @@ When the process noise variance **Q** and measurement noise variance **R** are u
 
 ---
 
-### Update rule for process noise variance \(Q\)
+### Update rule for process noise variance $\(Q\)$
 
 \[
 Q^{(k+1)}=\frac{1}{T-1}\sum_{t=2}^{T}\Big[
@@ -95,7 +95,7 @@ Q^{(k+1)}=\frac{1}{T-1}\sum_{t=2}^{T}\Big[
 \Big]
 \]
 
-### Update rule for measurement noise variance \(R\)
+### Update rule for measurement noise variance $\(R\)$
 
 \[
 R^{(k+1)}=\frac{1}{T}\sum_{t=1}^{T}\Big[
