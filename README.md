@@ -77,6 +77,60 @@ P_{t|t}
 = (1 - K_t) P_{t|t-1}
 $$
 
+## Expectation-Maximization (EM) for Parameter Estimation
+
+When the process noise variance **Q** and measurement noise variance **R** are unknown, we can use the **EM algorithm** to estimate them iteratively by alternating between:
+
+- **E-step**: run Kalman Filter + RTS Smoother to obtain smoothed estimates  
+- **M-step**: update \(Q, R\) using closed-form formulas
+
+---
+
+### Update rule for process noise variance \(Q\)
+
+\[
+Q^{(k+1)}=\frac{1}{T-1}\sum_{t=2}^{T}\Big[
+(\hat{x}_{t|T}-\hat{x}_{t-1|T})^2
++P_{t|T}+P_{t-1|T}-2P_{t,t-1|T}
+\Big]
+\]
+
+### Update rule for measurement noise variance \(R\)
+
+\[
+R^{(k+1)}=\frac{1}{T}\sum_{t=1}^{T}\Big[
+(y_t-\hat{x}_{t|T})^2 + P_{t|T}
+\Big]
+\]
+
+---
+
+### Notation
+
+- \(\hat{x}_{t|T}\): smoothed state estimate using **all** observations (RTS smoother output)
+- \(P_{t|T}\): smoothed state variance
+- \(P_{t,t-1|T}\): smoothed cross-covariance between consecutive states
+
+---
+
+## Experimental Results
+
+### Baselines
+
+- **Naive**: directly uses noisy observations as estimates
+- **Moving Average**: reduces noise but introduces time lag
+- **Linear Regression**: captures global trend but depends on training setup
+
+### Kalman Filter
+Achieves a balance between **smoothness** and **responsiveness**, and outperforms baselines in **RMSE** and **MAE**.
+
+### EM-Kalman
+Starting from initial guesses \(Q=1.0, R=4.0\), EM converged to:
+
+- \(Q_{\text{est}} \approx 0.75\)
+- \(R_{\text{est}} \approx 3.85\)
+
+These estimates are close to the true parameters, showing EM can effectively learn noise variances from data.
 ---
 
 ### Experimental Results
