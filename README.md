@@ -92,11 +92,7 @@ $$ Q^{(k+1)} = \frac{1}{T-1} \sum_{t=2}^{T} \Big[ (\hat{x}_{t|T} - \hat{x}_{t-1|
 
 ### Update rule for measurement noise variance $\(R\)$
 
-\[
-R^{(k+1)}=\frac{1}{T}\sum_{t=1}^{T}\Big[
-(y_t-\hat{x}_{t|T})^2 + P_{t|T}
-\Big]
-\]
+$$ R^{(k+1)} = \frac{1}{T} \sum_{t=1}^{T} \Big[ (y_t - \hat{x}_{t|T})^2 + P_{t|T} \Big] $$
 
 ---
 
@@ -122,8 +118,8 @@ Achieves a balance between **smoothness** and **responsiveness**, and outperform
 ### EM-Kalman
 Starting from initial guesses \(Q=1.0, R=4.0\), EM converged to:
 
-- \(Q_{\text{est}} \approx 0.75\)
-- \(R_{\text{est}} \approx 3.85\)
+- $$ Q_{\text{est}} \approx 0.75, \quad R_{\text{est}} \approx 3.85 $$
+
 
 These estimates are close to the true parameters, showing EM can effectively learn noise variances from data.
 ---
